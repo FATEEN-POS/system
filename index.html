@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
     <style>
         :root { --primary-bg: #000000; }
-        body { font-family: 'Inter', 'Tajawal', sans-serif; background-color: var(--primary-bg); color: #ffffff; scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Inter', 'Tajawal', sans-serif; background-color: var(--primary-bg); color: #ffffff; scroll-behavior: smooth; overflow-x: hidden; margin: 0; }
         
         /* نقوش الخلفية التقنية */
         .tech-bg {
@@ -18,54 +18,71 @@
             background-size: 40px 40px;
         }
 
-        .header-white { background-color: #ffffff; border-bottom: 1px solid #ddd; }
-        .lang-overlay { position: fixed; inset: 0; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center; }
+        .header-white { background-color: #ffffff; border-bottom: 2px solid #eeeeee; }
+        
+        /* ضبط اختيار اللغة في منتصف الشاشة تماماً */
+        .lang-overlay { 
+            position: fixed; 
+            inset: 0; 
+            background: #000; 
+            z-index: 9999; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+        }
+
         .card-black { background: rgba(10, 10, 10, 0.8); border: 1px solid #222; transition: all 0.4s ease; }
         .card-black:hover { border-color: #fff; transform: translateY(-5px); }
         
         [data-lang="ar"] { direction: rtl; }
         [data-lang="en"] { direction: ltr; }
+
+        /* انيميشن لظهور المحتوى */
+        .fade-in { animation: fadeIn 0.8s ease-in forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body class="tech-bg">
 
     <div id="langSelector" class="lang-overlay">
-        <div class="text-center">
-            <h2 class="text-2xl mb-8 tracking-widest uppercase font-light">Select Language / اختر اللغة</h2>
-            <div class="flex gap-6">
-                <button onclick="setLanguage('en')" class="border border-white px-8 py-3 hover:bg-white hover:text-black transition uppercase text-sm font-bold">English</button>
-                <button onclick="setLanguage('ar')" class="border border-white px-8 py-3 hover:bg-white hover:text-black transition text-sm font-bold font-tajawal">العربية</button>
+        <div class="text-center px-4">
+            <h2 class="text-xl md:text-3xl mb-12 tracking-[0.2em] uppercase font-light text-white">Select Language / اختر اللغة</h2>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <button onclick="setLanguage('en')" class="border border-white px-12 py-4 hover:bg-white hover:text-black transition uppercase text-sm font-bold tracking-widest">English</button>
+                <button onclick="setLanguage('ar')" class="border border-white px-12 py-4 hover:bg-white hover:text-black transition text-sm font-bold font-tajawal tracking-widest">العربية</button>
             </div>
         </div>
     </div>
 
-    <div id="mainContent" class="hidden">
+    <div id="mainContent" class="hidden fade-in">
         
-        <nav class="p-4 flex justify-between items-center header-white sticky top-0 z-50">
-            <img src="لوجو فطين اسود.png" alt="Logo" class="h-8 md:h-10">
+        <nav class="py-4 px-6 md:px-12 flex justify-between items-center header-white sticky top-0 z-50">
+            <img src="لوجو فطين اسود.png" alt="Logo" class="h-12 md:h-16 w-auto object-contain">
+            
             <div class="flex items-center gap-6">
-                <a href="https://wa.me/201273929303" class="bg-black text-white px-6 py-2 text-xs font-bold uppercase tracking-tighter hover:bg-gray-800 transition">Contact Now</a>
+                <a href="https://wa.me/201273929303" class="bg-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-gray-800 transition">Contact</a>
             </div>
         </nav>
 
-        <section class="min-h-[90vh] flex flex-col justify-center items-center text-center p-6">
-            <img src="لوجو فطين ابيض.png" alt="Hero Logo" class="w-64 md:w-[400px] mb-12">
-            <h2 id="heroSub" class="text-white text-sm md:text-lg font-light tracking-[0.4em] uppercase mb-12">
+        <section class="min-h-[85vh] flex flex-col justify-center items-center text-center p-6">
+            <img src="لوجو فطين ابيض.png" alt="Hero Logo" class="w-72 md:w-[500px] mb-16 drop-shadow-2xl">
+            <h2 id="heroSub" class="text-white text-sm md:text-xl font-light tracking-[0.5em] uppercase mb-16 px-4">
                 INTELLIGENT POINT OF SALE SOLUTIONS
             </h2>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://wa.me/201273929303" id="btnWa" class="bg-white text-black px-10 py-4 text-xs font-extrabold uppercase tracking-widest hover:invert transition-all">Whatsapp</a>
-                <a href="#services" id="btnSer" class="border border-white text-white px-10 py-4 text-xs font-extrabold uppercase tracking-widest hover:bg-white hover:text-black transition-all">Services</a>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://wa.me/201273929303" id="btnWa" class="bg-white text-black px-12 py-5 text-xs font-black uppercase tracking-[0.2em] hover:bg-gray-200 transition-all shadow-xl">Whatsapp</a>
+                <a href="#services" id="btnSer" class="border-2 border-white text-white px-12 py-5 text-xs font-black uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all">Services</a>
             </div>
         </section>
 
-        <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
-            <h2 id="serTitle" class="text-center text-2xl font-bold uppercase tracking-[0.3em] mb-20">Our Expertise</h2>
-            <div id="servicesGrid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <section id="services" class="py-32 px-8 max-w-7xl mx-auto">
+            <h2 id="serTitle" class="text-center text-3xl font-bold uppercase tracking-[0.4em] mb-24">Expertise</h2>
+            <div id="servicesGrid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 </div>
         </section>
 
-        <footer class="py-12 border-t border-white/10 text-center text-gray-500 text-[10px] tracking-[0.5em] uppercase">
+        <footer class="py-16 border-t border-white/5 text-center text-gray-600 text-[10px] tracking-[0.6em] uppercase">
             <p>© 2026 FATEEN POS SYSTEM - ASWAN, EGYPT</p>
         </footer>
     </div>
@@ -74,26 +91,26 @@
         const content = {
             en: {
                 heroSub: "INTELLIGENT POINT OF SALE SOLUTIONS",
-                btnWa: "Direct Whatsapp",
-                btnSer: "View Services",
+                btnWa: "Contact via Whatsapp",
+                btnSer: "Our Services",
                 serTitle: "Our Expertise",
                 services: [
-                    { t: "POS Systems", d: "Offline-first systems designed for high-traffic retail and restaurants." },
-                    { t: "AI Analysis", d: "Leverage machine learning to predict trends and optimize inventory." },
-                    { t: "Cloud Reporting", d: "Real-time dashboards accessible from anywhere in the world." },
-                    { t: "24/7 Support", d: "Dedicated technical experts ensuring your business never stops." }
+                    { t: "POS Systems", d: "High-performance systems for retail and hospitality, designed to work offline." },
+                    { t: "AI Insights", d: "Data-driven analysis to predict customer behavior and boost sales." },
+                    { t: "Cloud Control", d: "Manage your business from anywhere with our secure cloud dashboards." },
+                    { t: "Elite Support", d: "Technical experts available 24/7 to ensure your operations never fail." }
                 ]
             },
             ar: {
-                heroSub: "حلول نقاط البيع الذكية",
-                btnWa: "واتساب مباشر",
-                btnSer: "استعراض الخدمات",
-                serTitle: "خبراتنا",
+                heroSub: "حلول نقاط البيع الذكية المتكاملة",
+                btnWa: "تواصل عبر الواتساب",
+                btnSer: "خدماتنا الاحترافية",
+                serTitle: "مجالات خبرتنا",
                 services: [
-                    { t: "نظم الكاشير", d: "أنظمة تعمل بدون إنترنت، مصممة للمطاعم والمحلات التجارية الكبرى." },
-                    { t: "الذكاء الاصطناعي", d: "استخدام تعلم الآلة لتوقع الاتجاهات وتحسين المخزون." },
-                    { t: "تقارير سحابية", d: "لوحات تحكم لحظية يمكن الوصول إليها من أي مكان في العالم." },
-                    { t: "دعم 24/7", d: "خبراء فنيون لضمان استمرارية أعمالك دون أي توقف." }
+                    { t: "نظم الكاشير", d: "أنظمة فائقة السرعة للمطاعم والمحلات تعمل بكفاءة حتى بدون إنترنت." },
+                    { t: "رؤى الذكاء الاصطناعي", d: "تحليل البيانات لتوقع سلوك العملاء وزيادة الأرباح بذكاء." },
+                    { t: "الإدارة السحابية", d: "تابع عملك من أي مكان في العالم عبر لوحات تحكم مشفرة." },
+                    { t: "دعم فني متميز", d: "خبراء تقنيون متاحون 24/7 لضمان استقرار أعمالك دائماً." }
                 ]
             }
         };
@@ -102,24 +119,22 @@
             document.documentElement.lang = lang;
             document.body.setAttribute('data-lang', lang);
             
-            // Update Text
             document.getElementById('heroSub').innerText = content[lang].heroSub;
             document.getElementById('btnWa').innerText = content[lang].btnWa;
             document.getElementById('btnSer').innerText = content[lang].btnSer;
             document.getElementById('serTitle').innerText = content[lang].serTitle;
 
-            // Update Services Grid
             const grid = document.getElementById('servicesGrid');
             grid.innerHTML = content[lang].services.map(s => `
-                <div class="card-black p-10">
-                    <h3 class="text-sm font-bold mb-4 uppercase tracking-widest text-white">${s.t}</h3>
+                <div class="card-black p-12 text-center">
+                    <h3 class="text-sm font-bold mb-6 uppercase tracking-widest text-white">${s.t}</h3>
                     <p class="text-gray-500 text-xs leading-relaxed font-light">${s.d}</p>
                 </div>
             `).join('');
 
-            // Show Content
-            document.getElementById('langSelector').classList.add('hidden');
+            document.getElementById('langSelector').style.display = 'none';
             document.getElementById('mainContent').classList.remove('hidden');
+            window.scrollTo(0,0);
         }
     </script>
 </body>
