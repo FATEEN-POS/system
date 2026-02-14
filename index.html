@@ -8,66 +8,83 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Tajawal', sans-serif; background-color: #000000; color: #ffffff; scroll-behavior: smooth; }
-        .border-white-custom { border: 1px solid rgba(255, 255, 255, 0.2); }
+        
+        .glass-header { 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         .hover-white:hover { background-color: #ffffff; color: #000000; transition: 0.3s; }
         .card-black { background-color: #0a0a0a; border: 1px solid #222; }
+        
+        .contact-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            border-color: #ffffff;
+        }
     </style>
 </head>
 <body>
 
-    <nav class="p-4 flex justify-between items-center border-b border-gray-800 bg-black sticky top-0 z-50">
+    <nav class="p-4 flex justify-between items-center glass-header sticky top-0 z-50">
         <div class="flex items-center gap-4">
-            <img src="لوجو فطين ابيض.png" alt="FATEEN Logo" class="h-12 md:h-16 w-auto">
+            <img src="لوجو فطين اسود.png" alt="FATEEN Logo" class="h-10 md:h-14 w-auto">
         </div>
-        <div class="space-x-reverse space-x-6 hidden md:flex">
-            <a href="#services" class="hover:text-gray-400 transition text-sm">خدماتنا</a>
-            <a href="#contact" class="hover:text-gray-400 transition text-sm">تواصل معنا</a>
+        <div class="flex items-center gap-6">
+            <div class="space-x-reverse space-x-6 hidden md:flex ml-6">
+                <a href="#services" class="hover:text-gray-400 transition text-sm font-light">خدماتنا</a>
+            </div>
+            <a href="https://wa.me/201273929303" class="bg-white text-black px-5 py-2 text-xs font-bold hover:bg-gray-200 transition-all uppercase">اطلب الآن</a>
         </div>
     </nav>
 
     <section class="h-[80vh] flex flex-col justify-center items-center text-center p-4">
-        <img src="لوجو فطين ابيض.png" alt="FATEEN Large Logo" class="w-64 md:w-80 mb-8">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight italic">FATEEN</h1>
-        <p class="text-gray-400 text-lg max-w-2xl font-light italic">The Future of Intelligent Point of Sale Systems</p>
-        <div class="mt-10 flex gap-4">
-            <a href="#services" class="border border-white text-white px-8 py-3 hover-white transition-all text-sm uppercase">Our Services</a>
-            <a href="#contact" class="bg-white text-black px-8 py-3 font-bold hover:bg-gray-200 transition-all text-sm uppercase">Contact Now</a>
+        <img src="لوجو فطين اسود.png" alt="FATEEN Large Logo" class="w-64 md:w-96 mb-10">
+        <p class="text-gray-400 text-lg md:text-xl max-w-2xl font-light italic tracking-wide">
+            The Future of Intelligent Point of Sale Systems
+        </p>
+        <div class="mt-12 flex flex-wrap justify-center gap-4">
+            <a href="https://wa.me/201273929303" class="bg-white text-black px-10 py-4 font-bold hover:bg-gray-200 transition-all text-sm uppercase shadow-lg shadow-white/5">تواصل مباشر (واتساب)</a>
+            <a href="#services" class="border border-white/20 text-white px-10 py-4 hover-white transition-all text-sm uppercase">استعرض خدماتنا</a>
         </div>
     </section>
 
-    <section id="services" class="py-20 px-6 max-w-6xl mx-auto">
-        <h2 class="text-2xl font-bold text-center mb-16 border-b border-white w-fit mx-auto pb-2">خدماتنا الاحترافية</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="card-black p-8 rounded-none hover:border-white transition-all">
-                <h3 class="text-lg font-bold mb-4 uppercase">نظم الكاشير (POS)</h3>
-                <p class="text-gray-500 text-xs leading-relaxed">أنظمة متكاملة تعمل أوفلاين مع دعم كامل لضريبة القيمة المضافة وإدارة المخازن.</p>
-            </div>
-            <div class="card-black p-8 rounded-none hover:border-white transition-all">
-                <h3 class="text-lg font-bold mb-4 uppercase">الذكاء الاصطناعي</h3>
-                <p class="text-gray-500 text-xs leading-relaxed">تحليل بيانات المبيعات وتوقع الطلب المستقبلي لتقليل الهالك وزيادة الأرباح.</p>
-            </div>
-            <div class="card-black p-8 rounded-none hover:border-white transition-all">
-                <h3 class="text-lg font-bold mb-4 uppercase">تقارير سحابية</h3>
-                <p class="text-gray-500 text-xs leading-relaxed">تابع مبيعاتك من أي مكان في العالم عبر لوحة تحكم سحابية مؤمنة بالكامل.</p>
-            </div>
-            <div class="card-black p-8 rounded-none hover:border-white transition-all">
-                <h3 class="text-lg font-bold mb-4 uppercase">دعم فني 24/7</h3>
-                <p class="text-gray-500 text-xs leading-relaxed">فريق متخصص متواجد دائماً لضمان استمرارية عمل نظامك دون توقف.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20 bg-[#050505] text-center">
-        <h2 class="text-xl font-light mb-10 text-gray-400 uppercase tracking-widest">تواصل مع فريق الخبراء</h2>
+    <section id="contact" class="py-20 bg-[#050505] text-center border-y border-white/5">
+        <h2 class="text-xl font-light mb-4 text-gray-400 uppercase tracking-[0.3em]">قنوات التواصل المباشر</h2>
+        <p class="text-gray-600 mb-12 text-sm italic">متواجدون دائماً لخدمتكم</p>
+        
         <div class="flex flex-wrap justify-center gap-4 px-4 text-xs font-bold tracking-widest">
-            <a href="https://wa.me/201273929303" target="_blank" class="border border-white px-8 py-3 hover-white min-w-[180px]">WHATSAPP</a>
-            <a href="https://facebook.com/yourpage" target="_blank" class="border border-white px-8 py-3 hover-white min-w-[180px]">FACEBOOK</a>
-            <a href="mailto:info@fateen.com" class="border border-white px-8 py-3 hover-white min-w-[180px]">GMAIL</a>
-            <a href="tel:+201273929303" class="border border-white px-8 py-3 hover-white min-w-[180px]">CALL NOW</a>
+            <a href="https://wa.me/201273929303" target="_blank" class="border border-white/10 px-8 py-4 hover-white transition-all min-w-[180px] contact-glow">WHATSAPP</a>
+            <a href="tel:+201273929303" class="border border-white/10 px-8 py-4 hover-white transition-all min-w-[180px] contact-glow">CALL NOW</a>
+            <a href="https://facebook.com/yourpage" target="_blank" class="border border-white/10 px-8 py-4 hover-white transition-all min-w-[180px] contact-glow">FACEBOOK</a>
+            <a href="mailto:info@fateen.com" class="border border-white/10 px-8 py-4 hover-white transition-all min-w-[180px] contact-glow">GMAIL</a>
         </div>
     </section>
 
-    <footer class="py-10 border-t border-gray-900 text-center text-gray-600 text-[10px] tracking-[0.3em] uppercase">
+    <section id="services" class="py-24 px-6 max-w-6xl mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-16 border-b border-white w-fit mx-auto pb-2 uppercase tracking-widest">خدماتنا</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="card-black p-8 rounded-none hover:border-white transition-all group">
+                <h3 class="text-lg font-bold mb-4 uppercase">نظم الكاشير (POS)</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">حلول متكاملة للمطاعم والمحلات تعمل أوفلاين مع إدارة ذكية للمخزون.</p>
+            </div>
+            <div class="card-black p-8 rounded-none hover:border-white transition-all group">
+                <h3 class="text-lg font-bold mb-4 uppercase">الذكاء الاصطناعي</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">تحليل المبيعات وتوقع احتياجاتك المستقبلية لزيادة كفاءة العمل.</p>
+            </div>
+            <div class="card-black p-8 rounded-none hover:border-white transition-all group">
+                <h3 class="text-lg font-bold mb-4 uppercase">السحابة الرقمية</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">تقارير لحظية تصلك على موبايلك من أي مكان وفي أي وقت.</p>
+            </div>
+            <div class="card-black p-8 rounded-none hover:border-white transition-all group">
+                <h3 class="text-lg font-bold mb-4 uppercase">الدعم الفني</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">فريقنا معك دائماً لضمان استقرار النظام وتحديثه بشكل دوري.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-gray-900 text-center text-gray-700 text-[9px] tracking-[0.5em] uppercase">
         <p>© 2026 FATEEN POS SYSTEM - ASWAN, EGYPT</p>
     </footer>
 
